@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset = "utf-8">
+  <title>Musical Sorting</title>
+  <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+  <link rel = "stylesheet" href = "style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tektur" rel="stylesheet">
+</head>
+  
+<body>
+
+  <div class = 'titleDiv'>
+    <a href = ""><span>M</span><span>u</span><span>s</span><span>i</span><span>c</span><span>a</span><span>l</span><span>&nbsp</span><span>S</span><span>o</span><span>r</span><span>t</span><span>i</span><span>n</span><span>g</span></a>
+  </div>
+
+
+  <div id = "app">
+    <div class = "max">
+      <div id = "visualizer">
+
+      </div>
+
+      <div id = "control">
+        <div style="display: grid; margin: 0 10px;">
+          <div style = "display: flex">          
+            <button id = "sort"> SORT</button>
+            <button id = "reset"> RESET</button>
+          </div>
+          <label for = "sortType">Sort Type:</label>
+          <select id = "sortType">  
+            <option value = "bubble"> Bubble Sort</option>
+            <option value = "insertion"> Insertion Sort</option>
+            <option value = "selection"> Selection Sort</option>
+          </select>
+
+          <label for = "direction">Direction:</label>
+          <select id = "direction">
+            <option value = "ascend">Ascending</option>
+            <option value = "descend">Descending</option>
+          </select>
+        </div>
+
+        <div style = "display: grid">
+          <label for = "scale">Scale:</label>
+          <select id = "scale">
+            <option value = "Major"> Major</option>
+            <option value = "Dorian"> Dorian</option>
+            <option value = "Minor"> Minor</option>
+            <option value = "Harmonic Minor"> Harmonic Minor</option>
+            <option value = "Melodic Minor"> Melodic Minor</option>
+            <option value = "Minor Pentatonic"> Minor Pentatonic</option>
+            <option value = "Major Pentatonic"> Major Pentatonic</option>
+            <option value = "Chromatic">Chromatic</option>
+          </select>
+
+          <label for = "minPitchSlider">Min Pitch: <span id = "minPitch">7</span> </label>
+          <input type="range" min="0" max="41" value="7" class="slider" id="minPitchSlider">
+          <label for = "maxPitchSlider">Max Pitch: <span id = "maxPitch">28</span> </label>
+          <input type="range" min="8" max="42" value="28" class="slider" id="maxPitchSlider">
+
+        </div>
+        
+
+        <div style="display: grid; margin: 0 10px;">
+          <label for = "sizeSlider">Array Size: <span id = "sizeValue">50</span> </label>
+          <input type="range" min="5" max="100" value="50" class="slider" id="sizeSlider">
+          <label for = "speedSlider">Sort Speed: <span id = "speedValue">50</span></label>
+          <input type="range" min="1" max="50" value="50" class="slider" id="speedSlider">
+          <label for = "sustainSlider">Sustain(ms): 0.0<span id = "sustainValue">10</span> </label>
+          <input type="range" min="10" max="50" value="10" class="slider"  id="sustainSlider">
+        </div>
+
+        
+      </div>
+
+    </div>
+  </div>
+
+
+  <script src = "app.js"></script>
+
+
+</body>
+
+</html>
