@@ -1,0 +1,140 @@
+body {
+  background-color: navy;
+  margin: 0 auto;
+}
+
+* {
+  font-family: "Tektur";
+}
+
+.titleDiv {
+  display: grid;
+  width: fit-content;
+  margin: 0px auto;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  z-index: 1000;
+}
+
+.titleDiv a {
+  height: fit-content;
+  font-family: "Bungee Spice";
+
+}
+
+a span {
+  margin: 0 auto;
+  font-family: "Bungee Spice";
+  font-size: 35px;
+  height: 2ch;
+  display: inline-block;
+  transition: transform .5s;
+} 
+
+
+#app {
+  height: fit-content;
+  width: 700px;
+  max-width: 96vw;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+#visualizer, #visualizer2 {
+  height: 350px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+}
+
+.max {
+  width: 700px;
+  max-width: 96vw;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 10px ridge orange;
+}
+
+#control {
+  background-color: orange;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+  margin-top: auto;
+  padding: 20px;
+  max-width: 96vw;
+}
+
+button {
+  height: 4rem;
+  font-size: 30px;
+  margin: auto 10px;
+  border-radius: 5px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+label {
+  margin: 20px auto 0px auto;
+}
+
+
+.block {
+  border: 1px solid navy;
+  border-radius: 50px;
+}
+
+@keyframes glowing {
+  0% {box-shadow: none; }
+  50% { box-shadow: 0 0 10px gold;}
+  100% {box-shadow:none;}
+}
+
+@keyframes glowing2 {
+  0% { box-shadow: none; border-color: black; }
+  50% {box-shadow: 0 0 10px gold;border-color: white;}
+  100% {box-shadow: none;border-color: black;}
+}
+
+
+@keyframes wiggle {
+  33% {transform: rotate(-2deg);border-color: black;}
+  66% {transform: rotate(2deg);border-color: white;}
+  100%{transform: rotate(0deg); border-color: black;}
+}
+
+.flash {
+  animation: glowing2 500ms 1;
+
+  /**animation: glowing 500ms 1; animation: wiggle .1s linear 2;*/
+}
+
+.wiggle {
+  animation: wiggle .1s linear 2;
+}
+
+@media (max-width: 749px) {
+
+  #control {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .max {
+    width: 97vw;
+    box-sizing: border-box;
+
+  }
+
+  #app {
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  a span {
+    font-size: 26px;
+  }
+
+
+}
