@@ -104,7 +104,7 @@ label {
 
 }
 #note2 {
-  justify-self: right;
+  justify-self: end;
   border-bottom-left-radius: 50%;;
 }
 
@@ -162,7 +162,6 @@ label {
 
   #sortControls  {
     border-bottom: 5px ridge black; 
-    width: 100%;
   }
 
   #scaleControls, #toneControls {
