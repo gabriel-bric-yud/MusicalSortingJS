@@ -7,7 +7,6 @@
   <link rel = "stylesheet" href = "style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Tektur" rel="stylesheet">
 </head>
   
@@ -25,11 +24,15 @@
       </div>
 
       <div id = "control">
-        <div style="display: grid; margin: 0 10px;">
-          <div style = "display: flex">          
+        <div id = "sortControls" style="display: grid; margin: 0 5px; padding: 20px; ">
+          <div style = "display: flex; justify-content: center;">          
             <button id = "sort"> SORT</button>
             <button id = "reset"> RESET</button>
           </div>
+
+          <label for = "sizeSlider">Array Size: <span id = "sizeValue">15</span> </label>
+          <input type="range" min="5" max="200" value="15" class="slider" id="sizeSlider">
+
           <label for = "sortType">Sort Type:</label>
           <select id = "sortType">  
             <option value = "bubble"> Bubble Sort</option>
@@ -42,9 +45,14 @@
             <option value = "ascend">Ascending</option>
             <option value = "descend">Descending</option>
           </select>
+
+
+
         </div>
 
-        <div style = "display: grid">
+        
+
+        <div  id = "scaleControls" style="display: grid; margin: 0 5px; padding: 20px;">
           <label for = "scale">Scale:</label>
           <select id = "scale">
             <option value = "Major"> Major</option>
@@ -62,16 +70,45 @@
           <label for = "maxPitchSlider">Max Pitch: <span id = "maxPitch">28</span> </label>
           <input type="range" min="8" max="42" value="28" class="slider" id="maxPitchSlider">
 
-        </div>
-        
-
-        <div style="display: grid; margin: 0 10px;">
-          <label for = "sizeSlider">Array Size: <span id = "sizeValue">15</span> </label>
-          <input type="range" min="5" max="100" value="15" class="slider" id="sizeSlider">
           <label for = "speedSlider">Sort Speed: <span id = "speedValue">50</span></label>
           <input type="range" min="1" max="50" value="50" class="slider" id="speedSlider">
-          <label for = "sustainSlider">Sustain(ms): 0.0<span id = "sustainValue">10</span> </label>
-          <input type="range" min="10" max="50" value="10" class="slider"  id="sustainSlider">
+        </div>
+
+        
+        <div id = "toneControls" style = "display: grid; padding: 20px; border: 2px solid black; border-radius: 20px;">
+
+          <label for = "oscillator1Type" style="border-top:2px solid black; width: 100%">Oscillator 1</label>
+          <select id = "oscillator1Type" >
+            <option value = "sine">Sine</option>
+            <option value = "triangle" selected>Triangle</option>
+            <option value = "square">Square</option>
+            <option value = "sawtooth">Sawtooth</option>
+          </select>
+
+          
+          <label for = "gainSlider1">Gain: <span id = "gain1Value">23</span> </label>
+          <input type="range" min="1" max="30" value="23" class="slider"  id="gainSlider1">
+
+          <label for = "sustainSlider1">Sustain(ms): 0.0<span id = "sustain1Value">10</span> </label>
+          <input type="range" min="10" max="50" value="10" class="slider"  id="sustainSlider1">
+
+          <label for = "oscillator2Type" style="border-top:2px solid black; width: 100%;">Oscillator 2</label>
+          <select id = "oscillator2Type">
+            <option value = "sine">Sine</option>
+            <option value = "triangle" selected>Triangle</option>
+            <option value = "square">Square</option>
+            <option value = "sawtooth">Sawtooth</option>
+          </select>
+
+
+
+          <label for = "gainSlider2">Gain: <span id = "gain2Value">23</span> </label>
+          <input type="range" min="1" max="30" value="23" class="slider"  id="gainSlider2">
+
+          <label for = "sustainSlider2">Sustain(ms): 0.0<span id = "sustain2Value">10</span> </label>
+          <input type="range" min="10" max="50" value="10" class="slider"  id="sustainSlider2">
+
+
         </div>
 
         

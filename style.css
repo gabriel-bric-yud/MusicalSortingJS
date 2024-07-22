@@ -1,6 +1,7 @@
 body {
   background-color: navy;
   margin: 0 auto;
+  background: radial-gradient(navy, black);
 }
 
 * {
@@ -19,18 +20,19 @@ body {
 
 .titleDiv a {
   height: fit-content;
-  font-family: "Bungee Spice";
 
 }
 
 a span {
   margin: 0 auto;
-  font-family: "Bungee Spice";
   font-size: 35px;
+  font-weight: bolder;
+  color: white;
   height: 2ch;
   display: inline-block;
   transition: transform .5s;
 } 
+
 
 
 #app {
@@ -53,7 +55,7 @@ a span {
   max-width: 96vw;
   overflow: hidden;
   border-radius: 10px;
-  border: 10px ridge orange;
+  border: 10px solid orange;
 }
 
 #control {
@@ -65,6 +67,7 @@ a span {
   margin-top: auto;
   padding: 20px;
   max-width: 96vw;
+  
 }
 
 button {
@@ -134,6 +137,15 @@ label {
 
   a span {
     font-size: 26px;
+  }
+
+  #sortControls  {
+    border-bottom: 5px ridge black; 
+    width: 100%;
+  }
+
+  #scaleControls, #toneControls {
+    width: 100%;
   }
 
 

@@ -25,9 +25,6 @@ function printArrayString(array, txt) {
 function slideSwapAnimation(div1, div2, velocity, speed, visualizer) {
   return new Promise((resolve) => {
     setTimeout((e) => {
-      
-      console.log(div1)
-      console.log(div2)
       let rect1 = div1.getBoundingClientRect(); 
       let rect2 = div2.getBoundingClientRect(); 
       let start1 = rect1.x;
@@ -137,8 +134,8 @@ async function swap(array, index1, index2, velocity, speed, visualizer, scale) {
   await slideSwapAnimation(item1, item2, velocity, speed, visualizer)
   .then((r) => swapLocations(item1, item2, index1, index2))
   .then((data) => {
-    playOsc(osc1, "triangle", freqArray[0], .3)
-    playOsc(osc2, "triangle", freqArray[1], .3)
+    playOsc(osc1, osc1Type.value, gain1, sustain1, freqArray[0], .3)
+    playOsc(osc2, osc2Type.value, gain2, sustain2, freqArray[1], .3)
     
     //setTimeout(() => {
       //playOsc(osc1, "triangle", freqArray[1], .3)
@@ -161,7 +158,7 @@ async function selectionSortAscending(array, velocity, speed, visualizer, scale)
     }
   }
 
-  playSortedNotes(array, visualizer)
+  playSortedNotes(array, scale, visualizer)
   //printArray(array, "Selection Sort - ascending")
 }
 
@@ -178,7 +175,7 @@ async function selectionSortDescending(array, velocity, speed, visualizer, scale
       }
     }
   }
-  playSortedNotes(array, visualizer)
+  playSortedNotes(array, scale, visualizer)
   //printArray(array, "Selection Sort - descending")
 }
 
@@ -195,7 +192,7 @@ async function bubbleSortAscending(array, velocity, speed, visualizer, scale) {
       }
     }
   }
-  playSortedNotes(array, visualizer)
+  playSortedNotes(array, scale, visualizer)
   //printArray(array, "Bubble Sort - ascending")
 }
 
@@ -211,7 +208,7 @@ async function bubbleSortDescending(array, velocity, speed, visualizer, scale) {
       }
     }
   }
-  playSortedNotes(array, visualizer)
+  playSortedNotes(array, scale, visualizer)
   //printArray(array, "Bubble Sort - descending")
 }
 
@@ -230,7 +227,7 @@ async function insertionSortAscending(array, velocity, speed, visualizer, scale)
       }
     }
   }
-  playSortedNotes(array, visualizer)
+  playSortedNotes(array, scale, visualizer)
 
   //printArray(array, "Insertion Sort - Ascending")
 }
@@ -250,7 +247,7 @@ async function insertionSortDescending(array, velocity, speed, visualizer, scale
       }
     }
   }
-  playSortedNotes(array, visualizer)
+  playSortedNotes(array, scale, visualizer)
   //printArray(array, "Insertion Sort - descending")
 }
 
@@ -335,8 +332,7 @@ function getFrequencyChromatic(num) {
 
   let multiplier = 1
   if (num > 11) {
-    console.log("freq: " + freq)
-    console.log("multiplier: " + (Math.floor(num /11)))
+
     multiplier = Math.floor(num /12);
 
     if (multiplier < 2) {
@@ -346,7 +342,7 @@ function getFrequencyChromatic(num) {
     else {
       for (let i = 0; i < multiplier; i++) {
         freq *= 2
-        console.log(freq)
+
       }
       note = note + (multiplier + 1)
     }
@@ -355,9 +351,8 @@ function getFrequencyChromatic(num) {
     note = note + (multiplier)
   }
  
-  
-  console.log("final freq: " + freq)
-  console.log("note name: " + note)
+  //console.log("final freq: " + freq)
+  //console.log("note name: " + note)
   return freq;
 }
 
@@ -370,9 +365,7 @@ function getFrequencyMajorHectatonic(num) {
     noteNum = num;
   }
   else {
-    console.log("note original: " + num)
     noteNum = (num % 7);
-    console.log("note modulus: " + noteNum)
   }
 
   switch(noteNum) {
@@ -408,8 +401,6 @@ function getFrequencyMajorHectatonic(num) {
 
   let multiplier = 1
   if (num > 7) {
-    console.log("freq: " + freq)
-    console.log("multiplier: " + (Math.floor(num /6)))
     multiplier = Math.floor(num /7);
 
     if (multiplier < 2) {
@@ -419,7 +410,6 @@ function getFrequencyMajorHectatonic(num) {
     else {
       for (let i = 0; i < multiplier; i++) {
         freq *= 2
-        console.log(freq)
       }
       note = note + (multiplier + 1)
     }
@@ -429,8 +419,8 @@ function getFrequencyMajorHectatonic(num) {
   }
  
   
-  console.log("final freq: " + freq)
-  console.log("note name: " + note)
+  //console.log("final freq: " + freq)
+  //console.log("note name: " + note)
   return freq;
 }
 
@@ -442,9 +432,7 @@ function getFrequencyNaturalMinorHectatonic(num) {
     noteNum = num;
   }
   else {
-    console.log("note original: " + num)
     noteNum = (num % 7);
-    console.log("note modulus: " + noteNum)
   }
 
   switch(noteNum) {
@@ -481,8 +469,6 @@ function getFrequencyNaturalMinorHectatonic(num) {
 
   let multiplier = 1
   if (num > 7) {
-    console.log("freq: " + freq)
-    console.log("multiplier: " + (Math.floor(num /6)))
     multiplier = Math.floor(num /7);
 
     if (multiplier < 2) {
@@ -492,7 +478,6 @@ function getFrequencyNaturalMinorHectatonic(num) {
     else {
       for (let i = 0; i < multiplier; i++) {
         freq *= 2
-        console.log(freq)
       }
       note = note + (multiplier + 1)
     }
@@ -502,8 +487,8 @@ function getFrequencyNaturalMinorHectatonic(num) {
   }
  
   
-  console.log("final freq: " + freq)
-  console.log("note name: " + note)
+  //console.log("final freq: " + freq)
+  //console.log("note name: " + note)
   return freq;
 }
 
@@ -516,9 +501,7 @@ function getFrequencyDorianHectatonic(num) {
     noteNum = num;
   }
   else {
-    console.log("note original: " + num)
     noteNum = (num % 7);
-    console.log("note modulus: " + noteNum)
   }
 
   switch(noteNum) {
@@ -552,58 +535,8 @@ function getFrequencyDorianHectatonic(num) {
       break;
   }
 
-  switch(noteNum) {
-    case 0:
-      freq = 32.70320// 261.63;
-      note = "C";
-      break;
-    case 1:
-      freq = 34.64783 // 277.18;
-      note = "C#/Db"
-      break;
-    case 2:
-      freq = 36.70810 //293.66;
-      note = "D"
-      break;
-    case 3:
-      freq = 38.89087 //311.13;
-      note = "D#/Eb"
-      break;
-    case 4:
-      freq = 41.20344 //329.62;
-      note = "E"
-      break;
-    case 5:
-      freq = 43.65353 // 349.23;
-      note = "F"
-      break;
-    case 6:
-      freq = 46.24930 //69.99;
-      note = "F#/Gb"
-      break;
-    case 7:
-      freq = 48.99943		//392;
-      note = "G"
-      break;
-    case 8:
-      freq = 51.91309 //415.30;
-      note = "G#/Ab"
-      break;
-    case 9:
-
-    case 10:
-      freq = 58.27047;
-      note = "A#/Bb"
-      break;
-    case 11:
-      freq = 61.73541;
-      note = "B"
-      break;
-  }
   let multiplier = 1
   if (num > 7) {
-    //console.log("freq: " + freq)
-    //console.log("multiplier: " + (Math.floor(num /6)))
     multiplier = Math.floor(num /7);
 
     if (multiplier < 2) {
@@ -613,7 +546,6 @@ function getFrequencyDorianHectatonic(num) {
     else {
       for (let i = 0; i < multiplier; i++) {
         freq *= 2
-        //console.log(freq)
       }
       note = note + (multiplier + 1)
     }
@@ -636,9 +568,7 @@ function getFrequencyMelodicMinorHectatonic(num) {
     noteNum = num;
   }
   else {
-    //console.log("note original: " + num)
     noteNum = (num % 7);
-    //console.log("note modulus: " + noteNum)
   }
 
 
@@ -675,8 +605,6 @@ function getFrequencyMelodicMinorHectatonic(num) {
   
   let multiplier = 1
   if (num > 7) {
-    //console.log("freq: " + freq)
-    //console.log("multiplier: " + (Math.floor(num /6)))
     multiplier = Math.floor(num /7);
 
     if (multiplier < 2) {
@@ -686,7 +614,7 @@ function getFrequencyMelodicMinorHectatonic(num) {
     else {
       for (let i = 0; i < multiplier; i++) {
         freq *= 2
-        //console.log(freq)
+
       }
       note = note + (multiplier + 1)
     }
@@ -932,14 +860,43 @@ function createBlocks(array, visualizer) {
 
 //playOsc(osc1, "triangle", freqArray[i][1], .25)
 
-function playSortedNotes(array, visualizer) {
+function playSortedNotes(array, scale, visualizer) {
   for (let n = 1; n <= array.length; n++) {
     console.log("hello")
     visualizer.querySelector(`[data-index="${n-1}"]`).classList.remove("flash")
     visualizer.querySelector(`[data-index="${n-1}"]`).classList.remove("wiggle")
     setTimeout(() => {
       visualizer.querySelector(`[data-index="${n-1}"]`).classList.add("wiggle")
-      playOsc(osc1, "triangle", getFrequencyMajorHectatonic(array[n - 1]), .01)
+      let freq;
+      switch(scale) {
+        case "Major":
+          freq = getFrequencyMajorHectatonic(array[n-1])
+          break;
+        case "Dorian":
+          freq = getFrequencyDorianHectatonic(array[n-1])
+          break;
+        case "Minor":
+          freq = getFrequencyNaturalMinorHectatonic(array[n-1])
+          break;
+    
+        case "Harmonic Minor":
+          freq = getFrequencyHarmonicMinorHectatonic(array[n-1])
+          break;
+        case "Melodic Minor":
+          freq = getFrequencyMelodicMinorHectatonic(array[n-1])
+          break;
+        case "Minor Pentatonic":
+          freq = getFrequencyMinorPentatonic(array[n-1])
+          break;
+        case "Major Pentatonic":
+          freq = getFrequencyMajorPentatonic(array[n-1])
+          break;
+        case "Chromatic":
+          freq = getFrequencyChromatic(array[n-1])
+          break;
+      }
+      playOsc(osc1, osc1Type.value, gain1, sustain1, freq, .3)
+      playOsc(osc2, osc2Type.value, gain2, sustain2, freq, .3)
     }, 300 * n)
   }
 }
@@ -951,34 +908,49 @@ const vis = document.querySelector("#visualizer")
 const resetBtn = document.querySelector("#reset")
 const sortBtn = document.querySelector("#sort")
 const sortType = document.querySelector("#sortType")
+const osc1Type = document.querySelector("#oscillator1Type")
+const osc2Type = document.querySelector("#oscillator2Type")
 const direction = document.querySelector("#direction")
 const scaleType = document.querySelector("#scale")
 const sizeSlider = document.querySelector("#sizeSlider")
 const maxPitchSlider = document.querySelector("#maxPitchSlider")
 const minPitchSlider = document.querySelector("#minPitchSlider")
 const speedSlider = document.querySelector("#speedSlider")
-const sustainSlider = document.querySelector("#sustainSlider")
+const sustainSlider1 = document.querySelector("#sustainSlider1")
+const gainSlider1 = document.querySelector("#gainSlider1")
+const sustainSlider2 = document.querySelector("#sustainSlider2")
+const gainSlider2 = document.querySelector("#gainSlider2")
 let unsorted = true;
 let reset = false;
+
+console.log(osc1Type.value)
+    console.log(osc2Type.value)
+    
+
 let size = Number(sizeSlider.value) //20;
 let max = Number(maxPitchSlider.value) //21//20//28; //84
 let min = Number(minPitchSlider.value) //5//10 //14;
 let velocity = 2;
 let speed = 52 - Number(speedSlider.value);
-let sustain = Number(sustainSlider.value) / 100
+let sustain1 = Number(sustainSlider1.value) / 100
+let gain1 = 0.1 + (Number(gainSlider1.value) / 100)
+let sustain2 = Number(sustainSlider2.value) / 100
+let gain2 = 0.1 + (Number(gainSlider2.value) / 100)
 let osc1
 let osc2
 const audioCtx = new (window.AudioContext || window.webkit.AudioContext)();
+
+
 
 array1 = []
 fillArray(array1, size, max, min)
 createBlocks(array1, vis)
 
 
-function playOsc(osc, type, freq) {
-  stopTime = sustain
+function playOsc(osc, type, gain, sustain, freq) {
+  stopTime = Number(sustain)
   let gain1 = audioCtx.createGain();
-  gain1.gain.value = 0.2;
+  gain1.gain.value = gain;
   osc = audioCtx.createOscillator();
   osc.type =  type// type//"sawtooth" //"square";
   osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
@@ -1128,9 +1100,24 @@ sizeSlider.addEventListener("input", (e) => {
   document.querySelector("#sizeValue").innerHTML = e.target.value;
 })
 
-sustainSlider.addEventListener("input", (e) => {
-  document.querySelector("#sustainValue").innerHTML = e.target.value;
-  sustain = e.target.value / 100
+sustainSlider1.addEventListener("input", (e) => {
+  document.querySelector("#sustain1Value").innerHTML = e.target.value;
+  sustain1 = Number(e.target.value)/ 100
+})
+
+sustainSlider2.addEventListener("input", (e) => {
+  document.querySelector("#sustain2Value").innerHTML = e.target.value;
+  sustain2 = Number(e.target.value)/ 100
+})
+
+gainSlider1.addEventListener("input", (e) => {
+  document.querySelector("#gain1Value").innerHTML = e.target.value;
+  gain1 = 0.1 + (Number(e.target.value) / 100)
+})
+
+gainSlider2.addEventListener("input", (e) => {
+  document.querySelector("#gain2Value").innerHTML = e.target.value;
+  gain2 = 0.1 + (Number(e.target.value) / 100)
 })
 
 
