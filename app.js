@@ -857,6 +857,21 @@ function createBlocks(array, visualizer) {
     visualizer.firstChild.remove();
   }
 
+  /** 
+  noteDisplay1 = document.createElement("div");
+  noteDisplay1.classList.add("noteDisplay")
+  noteDisplay1.setAttribute("id", "note1");
+
+  noteDisplay2 = document.createElement("div");
+  noteDisplay2.classList.add("noteDisplay")
+  noteDisplay2.setAttribute("id", "note2");
+
+  visualizer.appendChild(noteDisplay1);
+  visualizer.appendChild(noteDisplay2)
+  */
+
+
+
   for (let i = 0; i < array.length; i++) {
     let block = singleBlock(i, array, visualizer)
     visualizer.appendChild(block)
