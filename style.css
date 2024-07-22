@@ -42,6 +42,7 @@ a span {
   margin: 0 auto;
   border-radius: 20px;
   display: grid;
+  position: relative;
 }
 
 #visualizer, #visualizer2 {
@@ -97,6 +98,7 @@ label {
   width: 4ch;
   height: 2ch;
   z-index: 999;
+  min-width: fit-content;
 }
 #note1 {
   border-bottom-right-radius: 50%;;
@@ -154,9 +156,6 @@ label {
     width: 97vw;
   }
 
-  #app {
-    margin: 0 auto;
-  }
 
   a span {
     font-size: 26px;
