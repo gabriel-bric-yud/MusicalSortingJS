@@ -978,7 +978,7 @@ createBlocks(array1, vis)
 function playOsc(osc, type, freq) {
   stopTime = sustain
   let gain1 = audioCtx.createGain();
-  gain1.gain.value = 0.1;
+  gain1.gain.value = 0.2;
   osc = audioCtx.createOscillator();
   osc.type =  type// type//"sawtooth" //"square";
   osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
