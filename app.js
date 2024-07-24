@@ -265,9 +265,9 @@ function getFrequencyChromatic(num) {
     noteNum = num;
   }
   else {
-    console.log("note original: " + num)
+    //console.log("note original: " + num)
     noteNum = (num % 12);
-    console.log("note modulus: " + noteNum)
+    //console.log("note modulus: " + noteNum)
   }
 
   switch(noteNum) {
