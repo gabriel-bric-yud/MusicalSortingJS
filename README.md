@@ -6,6 +6,7 @@ Sorting visualizer is coded in plain vanilla Javascript, CSS & HTML. All audio i
 You can make unique musical experiences by selecting the:
 
 - sort type
+- sort direction
 - sort speed
 - number of random items (notes)
 - musical scales
